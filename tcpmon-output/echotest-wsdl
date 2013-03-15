@@ -1,0 +1,323 @@
+
+==============
+Listen Port: 8680
+Target Host: 127.0.0.1
+Target Port: 8180
+==== Request ====
+GET /wstest/WSTestBean?wsdl HTTP/1.1
+User-Agent: Java/1.6.0_22
+Host: 127.0.0.1:8680
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+
+GET /wstest/WSTestBean?wsdl HTTP/1.1
+User-Agent: Java/1.6.0_22
+Host: esf2:8680
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+
+==== Response ====
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Powered-By: Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+Content-Type: text/xml
+Transfer-Encoding: chunked
+Date: Tue, 26 Feb 2013 00:12:55 GMT
+
+fe
+<definitions name='WSTestBeanService' targetNamespace='http://test.webservice/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://test.webservice/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+
+9
+ <types>
+
+96
+  <xs:schema targetNamespace='http://test.webservice/' version='1.0' xmlns:tns='http://test.webservice/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+2d
+   <xs:element name='echo' type='tns:echo'/>
+
+3d
+   <xs:element name='echoResponse' type='tns:echoResponse'/>
+
+20
+   <xs:complexType name='echo'>
+
+12
+    <xs:sequence>
+
+3e
+     <xs:element minOccurs='0' name='arg0' type='xs:string'/>
+
+13
+    </xs:sequence>
+
+15
+   </xs:complexType>
+
+28
+   <xs:complexType name='echoResponse'>
+
+13
+    <xs:sequence/>
+
+15
+   </xs:complexType>
+
+f
+  </xs:schema>
+
+a
+ </types>
+
+22
+ <message name='WSTestBean_echo'>
+
+27
+  <part element='tns:echo' name='echo'>
+8
+</part>
+
+c
+ </message>
+
+2a
+ <message name='WSTestBean_echoResponse'>
+
+37
+  <part element='tns:echoResponse' name='echoResponse'>
+8
+</part>
+
+c
+ </message>
+
+1e
+ <portType name='WSTestBean'>
+
+30
+  <operation name='echo' parameterOrder='echo'>
+
+28
+   <input message='tns:WSTestBean_echo'>
+9
+</input>
+
+31
+   <output message='tns:WSTestBean_echoResponse'>
+a
+</output>
+
+f
+  </operation>
+
+d
+ </portType>
+
+3a
+ <binding name='WSTestBeanBinding' type='tns:WSTestBean'>
+
+54
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+
+1a
+  <operation name='echo'>
+
+23
+   <soap:operation soapAction=''/>
+
+b
+   <input>
+
+1f
+    <soap:body use='literal'/>
+
+c
+   </input>
+
+c
+   <output>
+
+1f
+    <soap:body use='literal'/>
+
+d
+   </output>
+
+f
+  </operation>
+
+c
+ </binding>
+
+24
+ <service name='WSTestBeanService'>
+
+3f
+  <port binding='tns:WSTestBeanBinding' name='WSTestBeanPort'>
+
+41
+   <soap:address location='http://esf2:8680/wstest/WSTestBean'/>
+
+a
+  </port>
+
+c
+ </service>
+
+e
+</definitions>
+0
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Powered-By: Servlet 2.5; JBoss-5.0/JBossWeb-2.1
+Content-Type: text/xml
+Transfer-Encoding: chunked
+Date: Tue, 26 Feb 2013 00:12:55 GMT
+
+fe
+<definitions name='WSTestBeanService' targetNamespace='http://test.webservice/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://test.webservice/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+
+9
+ <types>
+
+96
+  <xs:schema targetNamespace='http://test.webservice/' version='1.0' xmlns:tns='http://test.webservice/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+2d
+   <xs:element name='echo' type='tns:echo'/>
+
+3d
+   <xs:element name='echoResponse' type='tns:echoResponse'/>
+
+20
+   <xs:complexType name='echo'>
+
+12
+    <xs:sequence>
+
+3e
+     <xs:element minOccurs='0' name='arg0' type='xs:string'/>
+
+13
+    </xs:sequence>
+
+15
+   </xs:complexType>
+
+28
+   <xs:complexType name='echoResponse'>
+
+13
+    <xs:sequence/>
+
+15
+   </xs:complexType>
+
+f
+  </xs:schema>
+
+a
+ </types>
+
+22
+ <message name='WSTestBean_echo'>
+
+27
+  <part element='tns:echo' name='echo'>
+8
+</part>
+
+c
+ </message>
+
+2a
+ <message name='WSTestBean_echoResponse'>
+
+37
+  <part element='tns:echoResponse' name='echoResponse'>
+8
+</part>
+
+c
+ </message>
+
+1e
+ <portType name='WSTestBean'>
+
+30
+  <operation name='echo' parameterOrder='echo'>
+
+28
+   <input message='tns:WSTestBean_echo'>
+9
+</input>
+
+31
+   <output message='tns:WSTestBean_echoResponse'>
+a
+</output>
+
+f
+  </operation>
+
+d
+ </portType>
+
+3a
+ <binding name='WSTestBeanBinding' type='tns:WSTestBean'>
+
+54
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+
+1a
+  <operation name='echo'>
+
+23
+   <soap:operation soapAction=''/>
+
+b
+   <input>
+
+1f
+    <soap:body use='literal'/>
+
+c
+   </input>
+
+c
+   <output>
+
+1f
+    <soap:body use='literal'/>
+
+d
+   </output>
+
+f
+  </operation>
+
+c
+ </binding>
+
+24
+ <service name='WSTestBeanService'>
+
+3f
+  <port binding='tns:WSTestBeanBinding' name='WSTestBeanPort'>
+
+41
+   <soap:address location='http://esf2:8680/wstest/WSTestBean'/>
+
+a
+  </port>
+
+c
+ </service>
+
+e
+</definitions>
+0
+
+
+==============
