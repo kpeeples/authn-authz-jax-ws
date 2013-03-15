@@ -1,0 +1,5 @@
+#surefire
+#Thu Feb 28 15:41:23 EST 2013
+user.dir=/home/jboss/workspace/MyMvnWorkspaces/esf2-jaxws
+localRepository=/home/jboss/.m2/repository
+basedir=/home/jboss/workspace/MyMvnWorkspaces/esf2-jaxws
