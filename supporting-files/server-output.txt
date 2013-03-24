@@ -1,0 +1,346 @@
+02:12:19,851 TRACE [SecurityRolesAssociation] Setting threadlocal:{}
+02:12:19,852 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMap{}
+02:12:19,852 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:19,853 TRACE [JBossWebRealm] Begin authenticate, username=UserA
+02:12:19,853 TRACE [ws-trust] Begin isValid, principal:UserA, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@3c9a07f5[Subject(1739181094).principals=org.jboss.security.SimplePrincipal@1187916960(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081]
+02:12:19,853 TRACE [ws-trust] Begin validateCache, info=org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@3c9a07f5[Subject(1739181094).principals=org.jboss.security.SimplePrincipal@1187916960(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081];credential.class=java.lang.String@943980654
+02:12:19,853 TRACE [ws-trust] End validateCache, isValid=true
+02:12:19,853 TRACE [ws-trust] End isValid, true
+02:12:19,853 TRACE [JBossWebRealm] User: UserA is authenticated
+02:12:19,853 TRACE [ws-trust] getPrincipal, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@3c9a07f5[Subject(1739181094).principals=org.jboss.security.SimplePrincipal@1187916960(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081]
+02:12:19,853 TRACE [JBossWebRealm] Mapped from input principal: UserAto: UserA
+02:12:19,854 TRACE [JBossWebRealm] End authenticate, principal=GenericPrincipal[UserA(STSClient,)]
+02:12:19,854 TRACE [JBossWebRealm] [getServletName:servletmappings=[Ljava.lang.String;@85f43f3:servlet.getName()=PicketLinkSTS]
+02:12:19,854 TRACE [JBossWebRealm] hasRole:RealmBase says:false::Authz framework says:false:final=false
+02:12:19,854 TRACE [JBossWebRealm] [getServletName:servletmappings=[Ljava.lang.String;@26660ad0:servlet.getName()=PicketLinkSTS]
+02:12:19,854 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:19,854 TRACE [JBossWebRealm] hasRole:RealmBase says:true::Authz framework says:true:final=true
+02:12:19,854 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:19,854 TRACE [JBossWebRealm] hasResourcePerm:RealmBase says:true::Authz framework says:true:final=true
+02:12:19,854 TRACE [SecurityAssociationValve] Begin invoke, caller=GenericPrincipal[UserA(STSClient,)]
+02:12:19,854 TRACE [SecurityAssociationValve] Restoring principal info from cache
+02:12:19,854 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:19,855 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:19,866 DEBUG [PicketLinkSTS] STS received request of type http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue
+02:12:19,866 TRACE [StandardRequestHandler] Issuing token for principal UserA
+02:12:19,866 DEBUG [StandardRequestHandler] Lifetime has not been specified. Using the default timeout value.
+02:12:19,867 DEBUG [StandardRequestHandler] No key type could be found in the request. Using the default BEARER type.
+02:12:19,868 DEBUG [StandardRequestHandler] No key size could be found in the request. Using the default size. (128)
+02:12:19,868 DEBUG [PicketLinkCoreSTS] issueToken::provider=org.picketlink.identity.federation.core.wstrust.plugins.saml.SAML20TokenProvider@53a355b4
+02:12:19,870 TRACE [SAMLUtil] Written Assertion=<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">PicketLinkSTS</saml:Issuer><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:19,871 TRACE [StandardRequestHandler] NamespaceURI of element to be signed:urn:oasis:names:tc:SAML:2.0:assertion
+02:12:19,872 TRACE [XMLSignatureUtil] Document to be signed=<wst:RequestSecurityTokenResponseCollection xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"><wst:RequestSecurityTokenResponse Context="default-context"><wst:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</wst:TokenType><wst:Lifetime><wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2013-03-24T06:12:19.867Z</wsu:Created><wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2013-03-24T07:12:19.867Z</wsu:Expires></wst:Lifetime><wst:KeySize>128</wst:KeySize><wst:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</wst:KeyType><wst:RequestedSecurityToken><saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">PicketLinkSTS</saml:Issuer><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion></wst:RequestedSecurityToken><wst:RequestedAttachedReference><wsse:SecurityTokenReference xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"><wsse:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34</wsse:KeyIdentifier></wsse:SecurityTokenReference></wst:RequestedAttachedReference></wst:RequestSecurityTokenResponse></wst:RequestSecurityTokenResponseCollection>
+02:12:19,873 TRACE [XMLSignatureUtil] Document to be signed=<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">PicketLinkSTS</saml:Issuer><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:19,875 TRACE [StandardRequestHandler] Signed Token:<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">PicketLinkSTS</saml:Issuer><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:19,881 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:19,881 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:19,881 TRACE [SecurityAssociationValve] End invoke, caller=GenericPrincipal[UserA(STSClient,)]
+02:12:19,881 TRACE [SecurityAssociation] clear, server=true
+02:12:19,881 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:19,881 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,023 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,023 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMapnull
+02:12:20,023 TRACE [SecurityAssociationValve] Begin invoke, caller=null
+02:12:20,024 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,024 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,028 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,028 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,028 TRACE [SecurityAssociationValve] End invoke, caller=null
+02:12:20,028 TRACE [SecurityAssociation] clear, server=true
+02:12:20,028 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,028 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,042 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,043 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMapnull
+02:12:20,043 TRACE [SecurityAssociationValve] Begin invoke, caller=null
+02:12:20,043 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,043 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,045 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,045 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,045 TRACE [SecurityAssociationValve] End invoke, caller=null
+02:12:20,045 TRACE [SecurityAssociation] clear, server=true
+02:12:20,045 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,045 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,122 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,122 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMapnull
+02:12:20,122 TRACE [SecurityAssociationValve] Begin invoke, caller=null
+02:12:20,123 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,123 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,126 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,126 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,126 TRACE [SecurityAssociationValve] End invoke, caller=null
+02:12:20,126 TRACE [SecurityAssociation] clear, server=true
+02:12:20,126 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,126 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,615 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,616 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMapnull
+02:12:20,616 TRACE [SecurityAssociationValve] Begin invoke, caller=null
+02:12:20,616 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,616 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,618 INFO  [STDOUT] SAML2ServerHandler :: Inbound message
+02:12:20,619 INFO  [STDOUT] <?xml version="1.0" encoding="UTF-8"?>
+02:12:20,619 INFO  [STDOUT] <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+02:12:20,619 INFO  [STDOUT] 
+    <env:Header>
+02:12:20,621 INFO  [STDOUT] 
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" env:mustUnderstand="1">
+02:12:20,621 INFO  [STDOUT] 
+            <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0">
+02:12:20,621 INFO  [STDOUT] 
+                <saml:Issuer>PicketLinkSTS</saml:Issuer>
+02:12:20,622 INFO  [STDOUT] 
+                <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+02:12:20,622 INFO  [STDOUT] 
+                    <dsig:SignedInfo>
+02:12:20,622 INFO  [STDOUT] 
+                        <dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/>
+02:12:20,622 INFO  [STDOUT] 
+                        <dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+02:12:20,622 INFO  [STDOUT] 
+                        <dsig:Reference URI="#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34">
+02:12:20,622 INFO  [STDOUT] 
+                            <dsig:Transforms>
+02:12:20,622 INFO  [STDOUT] 
+                                <dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+02:12:20,622 INFO  [STDOUT] 
+                                <dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                            </dsig:Transforms>
+02:12:20,622 INFO  [STDOUT] 
+                            <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+02:12:20,622 INFO  [STDOUT] 
+                            <dsig:DigestValue>w6jr9EdT8Dgot8DTxiZQ0Y9DBm0=</dsig:DigestValue>
+                        </dsig:Reference>
+                    </dsig:SignedInfo>
+02:12:20,622 INFO  [STDOUT] 
+                    <dsig:SignatureValue>I5R5XTTA7fyeWuDS64IUkKOLpL7U7FUARdOyKXaj2SaGU+UdKeImnfHeS1g1zztHvq7LjHrmaPBa
+mhq03pVcVrWFnAh8ZGmfMYF3djRkQam11l+JbNnwUuFbExGo+OCi/oe11xy6VbP21Oqtp7ilTBef
+EIS/VnKTRqFPN2JheE0=</dsig:SignatureValue>
+02:12:20,622 INFO  [STDOUT] 
+                    <dsig:KeyInfo>
+02:12:20,622 INFO  [STDOUT] 
+                        <dsig:KeyValue>
+02:12:20,622 INFO  [STDOUT] 
+                            <dsig:RSAKeyValue>
+02:12:20,622 INFO  [STDOUT] 
+                                <dsig:Modulus>suGIyhVTbFvDwZdx8Av62zmP+aGOlsBN8WUE3eEEcDtOIZgO78SImMQGwB2C0eIVMhiLRzVPqoW1
+dCPAveTm653zHOmubaps1fY0lLJDSZbTbhjeYhoQmmaBro/tDpVw5lKJns2qVnMuRK19ju2dxpKw
+lYGGtrP5VQv00dfNPbs=</dsig:Modulus>
+02:12:20,622 INFO  [STDOUT] 
+                                <dsig:Exponent>AQAB</dsig:Exponent>
+                            </dsig:RSAKeyValue>
+                        </dsig:KeyValue>
+                    </dsig:KeyInfo>
+                </dsig:Signature>
+02:12:20,622 INFO  [STDOUT] 
+                <saml:Subject>
+02:12:20,623 INFO  [STDOUT] 
+                    <saml:NameID NameQualifier="urn:picketlink:identity-federation">UserA</saml:NameID>
+02:12:20,623 INFO  [STDOUT] 
+                    <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/>
+                </saml:Subject>
+02:12:20,623 INFO  [STDOUT] 
+                <saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/>
+            </saml:Assertion>
+        </wsse:Security>
+    </env:Header>
+02:12:20,623 INFO  [STDOUT] 
+    <env:Body>
+02:12:20,623 INFO  [STDOUT] 
+        <ns2:echo xmlns:ns2="http://server.jaxws.webservice/">
+            <arg0>Test</arg0>
+        </ns2:echo>
+    </env:Body>
+</env:Envelope>
+02:12:20,625 TRACE [TransformerUtil] Set Attribute Namespace=http://www.w3.org/2000/xmlns/::Qual=:xmlns:dsig::Value=http://www.w3.org/2000/09/xmldsig#
+02:12:20,625 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,625 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,625 TRACE [TransformerUtil] Creating an Attribute Namespace=:URI
+02:12:20,625 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,625 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,626 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,628 TRACE [AssertionUtil] Now=2013-03-24T02:12:20.627-04:00 ::notBefore=2013-03-24T06:12:19.867Z::notOnOrAfter=2013-03-24T07:12:19.867Z
+02:12:20,629 INFO  [STDOUT] SAML2ServerHandler :: Assertion included in SOAP payload
+02:12:20,629 INFO  [STDOUT] SAML2ServerHandler :: <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer>PicketLinkSTS</saml:Issuer><dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:SignedInfo><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><dsig:Reference URI="#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34"><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><dsig:DigestValue>w6jr9EdT8Dgot8DTxiZQ0Y9DBm0=</dsig:DigestValue></dsig:Reference></dsig:SignedInfo><dsig:SignatureValue>I5R5XTTA7fyeWuDS64IUkKOLpL7U7FUARdOyKXaj2SaGU+UdKeImnfHeS1g1zztHvq7LjHrmaPBa
+mhq03pVcVrWFnAh8ZGmfMYF3djRkQam11l+JbNnwUuFbExGo+OCi/oe11xy6VbP21Oqtp7ilTBef
+EIS/VnKTRqFPN2JheE0=</dsig:SignatureValue><dsig:KeyInfo><dsig:KeyValue><dsig:RSAKeyValue><dsig:Modulus>suGIyhVTbFvDwZdx8Av62zmP+aGOlsBN8WUE3eEEcDtOIZgO78SImMQGwB2C0eIVMhiLRzVPqoW1
+dCPAveTm653zHOmubaps1fY0lLJDSZbTbhjeYhoQmmaBro/tDpVw5lKJns2qVnMuRK19ju2dxpKw
+lYGGtrP5VQv00dfNPbs=</dsig:Modulus><dsig:Exponent>AQAB</dsig:Exponent></dsig:RSAKeyValue></dsig:KeyValue></dsig:KeyInfo></dsig:Signature><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:20,630 INFO  [STDOUT] SAML2ServerHandler :: username-->UserA
+02:12:20,630 INFO  [STDOUT] SAML2ServerHandler :: Rolekeys to extract roles from the assertion:[Role]
+02:12:20,630 INFO  [STDOUT] SAML2ServerHandler :: Did not find roles in the assertion
+02:12:20,633 TRACE [sts-wstest] Begin isValid, principal:UserA, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@486306fa[Subject(908473570).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107212276]
+02:12:20,633 TRACE [sts-wstest] Begin validateCache, info=org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@486306fa[Subject(908473570).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107212276];credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553
+02:12:20,633 TRACE [sts-wstest] End validateCache, isValid=false
+02:12:20,633 TRACE [sts-wstest] defaultLogin, principal=UserA
+02:12:20,633 TRACE [XMLLoginConfigImpl] Begin getAppConfigurationEntry(sts-wstest), size=13
+02:12:20,633 TRACE [XMLLoginConfigImpl] End getAppConfigurationEntry(sts-wstest), authInfo=AppConfigurationEntry[]:
+[0]
+LoginModule Class: org.picketlink.identity.federation.bindings.jboss.auth.SAML2STSLoginModule
+ControlFlag: LoginModuleControlFlag: required
+Options:
+name=configFile, value=sts-config.properties
+name=password-stacking, value=useFirstPass
+[1]
+LoginModule Class: org.jboss.security.auth.spi.UsersRolesLoginModule
+ControlFlag: LoginModuleControlFlag: required
+Options:
+name=usersProperties, value=sts-users.properties
+name=rolesProperties, value=sts-roles.properties
+name=password-stacking, value=useFirstPass
+
+02:12:20,634 TRACE [SAML2STSLoginModule] initialize
+02:12:20,634 TRACE [SAML2STSLoginModule] Security domain: sts-wstest
+02:12:20,634 TRACE [SAML2STSLoginModule] {jboss.security.security_domain=sts-wstest, configFile=sts-config.properties, password-stacking=useFirstPass}
+02:12:20,634 TRACE [SAML2STSLoginModule] login
+02:12:20,636 TRACE [SAML2STSLoginModule] Local Validation is disabled. Verifying with STS
+02:12:20,636 TRACE [STSClientConfig] Checkin ServiceName:
+02:12:20,636 TRACE [STSClientConfig] Checkin portName:
+02:12:20,637 TRACE [STSClientConfig] Checkin endpointAddress:
+02:12:20,637 TRACE [STSClientConfig] Checkin username:
+02:12:20,637 TRACE [STSClientConfig] password portName:
+02:12:20,669 TRACE [SecurityRolesAssociation] Setting threadlocal:{}
+02:12:20,671 TRACE [JaccContextValve] MetaData:org.jboss.metadata.web.jboss.JBossWebMetaData@1f:principalToRoleSetMap{}
+02:12:20,672 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:20,672 TRACE [JBossWebRealm] Begin authenticate, username=JBoss
+02:12:20,672 TRACE [ws-trust] Begin isValid, principal:JBoss, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@360d9415[Subject(1361349297).principals=org.jboss.security.SimplePrincipal@1187916960(JBoss)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081]
+02:12:20,672 TRACE [ws-trust] Begin validateCache, info=org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@360d9415[Subject(1361349297).principals=org.jboss.security.SimplePrincipal@1187916960(JBoss)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081];credential.class=java.lang.String@943980654
+02:12:20,672 TRACE [ws-trust] End validateCache, isValid=true
+02:12:20,672 TRACE [ws-trust] End isValid, true
+02:12:20,673 TRACE [JBossWebRealm] User: JBoss is authenticated
+02:12:20,673 TRACE [ws-trust] getPrincipal, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@360d9415[Subject(1361349297).principals=org.jboss.security.SimplePrincipal@1187916960(JBoss)org.jboss.security.SimpleGroup@526431881(Roles(members:STSClient)),credential.class=java.lang.String@943980654,expirationTime=1364107238081]
+02:12:20,673 TRACE [JBossWebRealm] Mapped from input principal: JBossto: JBoss
+02:12:20,673 TRACE [JBossWebRealm] End authenticate, principal=GenericPrincipal[JBoss(STSClient,)]
+02:12:20,673 TRACE [JBossWebRealm] [getServletName:servletmappings=[Ljava.lang.String;@65580167:servlet.getName()=PicketLinkSTS]
+02:12:20,673 TRACE [JBossWebRealm] hasRole:RealmBase says:false::Authz framework says:false:final=false
+02:12:20,673 TRACE [JBossWebRealm] [getServletName:servletmappings=[Ljava.lang.String;@74c4452b:servlet.getName()=PicketLinkSTS]
+02:12:20,673 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:20,673 TRACE [JBossWebRealm] hasRole:RealmBase says:true::Authz framework says:true:final=true
+02:12:20,674 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.DelegatingAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:20,674 TRACE [JBossWebRealm] hasResourcePerm:RealmBase says:true::Authz framework says:true:final=true
+02:12:20,674 TRACE [SecurityAssociationValve] Begin invoke, caller=GenericPrincipal[JBoss(STSClient,)]
+02:12:20,674 TRACE [SecurityAssociationValve] Restoring principal info from cache
+02:12:20,674 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:20,674 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:20,683 TRACE [TransformerUtil] Creating an Attribute Namespace=:ID
+02:12:20,683 TRACE [TransformerUtil] Creating an Attribute Namespace=:IssueInstant
+02:12:20,683 TRACE [TransformerUtil] Creating an Attribute Namespace=:Version
+02:12:20,683 TRACE [TransformerUtil] Set Attribute Namespace=http://www.w3.org/2000/xmlns/::Qual=:xmlns:saml::Value=urn:oasis:names:tc:SAML:2.0:assertion
+02:12:20,683 TRACE [TransformerUtil] Set Attribute Namespace=http://www.w3.org/2000/xmlns/::Qual=:xmlns:dsig::Value=http://www.w3.org/2000/09/xmldsig#
+02:12:20,683 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,683 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:URI
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:NameQualifier
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:Method
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:NotBefore
+02:12:20,684 TRACE [TransformerUtil] Creating an Attribute Namespace=:NotOnOrAfter
+02:12:20,685 DEBUG [PicketLinkSTS] STS received request of type http://docs.oasis-open.org/ws-sx/ws-trust/200512/Validate
+02:12:20,685 TRACE [StandardRequestHandler] Started validation for request context
+02:12:20,686 TRACE [StandardRequestHandler] Going to validate:<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer>PicketLinkSTS</saml:Issuer><dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:SignedInfo><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><dsig:Reference URI="#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34"><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><dsig:DigestValue>w6jr9EdT8Dgot8DTxiZQ0Y9DBm0=</dsig:DigestValue></dsig:Reference></dsig:SignedInfo><dsig:SignatureValue>I5R5XTTA7fyeWuDS64IUkKOLpL7U7FUARdOyKXaj2SaGU+UdKeImnfHeS1g1zztHvq7LjHrmaPBa
+mhq03pVcVrWFnAh8ZGmfMYF3djRkQam11l+JbNnwUuFbExGo+OCi/oe11xy6VbP21Oqtp7ilTBef
+EIS/VnKTRqFPN2JheE0=</dsig:SignatureValue><dsig:KeyInfo><dsig:KeyValue><dsig:RSAKeyValue><dsig:Modulus>suGIyhVTbFvDwZdx8Av62zmP+aGOlsBN8WUE3eEEcDtOIZgO78SImMQGwB2C0eIVMhiLRzVPqoW1
+dCPAveTm653zHOmubaps1fY0lLJDSZbTbhjeYhoQmmaBro/tDpVw5lKJns2qVnMuRK19ju2dxpKw
+lYGGtrP5VQv00dfNPbs=</dsig:Modulus><dsig:Exponent>AQAB</dsig:Exponent></dsig:RSAKeyValue></dsig:KeyValue></dsig:KeyInfo></dsig:Signature><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:20,688 TRACE [StandardRequestHandler] Delegating token validation to token provider
+02:12:20,688 DEBUG [PicketLinkCoreSTS] validateToken::provider=org.picketlink.identity.federation.core.wstrust.plugins.saml.SAML20TokenProvider@53a355b4
+02:12:20,688 TRACE [SAML20TokenProvider] SAML V2.0 token validation started
+02:12:20,689 TRACE [SAML20TokenProvider] Assertion Element=<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" IssueInstant="2013-03-24T06:12:19.867Z" Version="2.0"><saml:Issuer>PicketLinkSTS</saml:Issuer><dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:SignedInfo><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><dsig:Reference URI="#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34"><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><dsig:DigestValue>w6jr9EdT8Dgot8DTxiZQ0Y9DBm0=</dsig:DigestValue></dsig:Reference></dsig:SignedInfo><dsig:SignatureValue>I5R5XTTA7fyeWuDS64IUkKOLpL7U7FUARdOyKXaj2SaGU+UdKeImnfHeS1g1zztHvq7LjHrmaPBa
+mhq03pVcVrWFnAh8ZGmfMYF3djRkQam11l+JbNnwUuFbExGo+OCi/oe11xy6VbP21Oqtp7ilTBef
+EIS/VnKTRqFPN2JheE0=</dsig:SignatureValue><dsig:KeyInfo><dsig:KeyValue><dsig:RSAKeyValue><dsig:Modulus>suGIyhVTbFvDwZdx8Av62zmP+aGOlsBN8WUE3eEEcDtOIZgO78SImMQGwB2C0eIVMhiLRzVPqoW1
+dCPAveTm653zHOmubaps1fY0lLJDSZbTbhjeYhoQmmaBro/tDpVw5lKJns2qVnMuRK19ju2dxpKw
+lYGGtrP5VQv00dfNPbs=</dsig:Modulus><dsig:Exponent>AQAB</dsig:Exponent></dsig:RSAKeyValue></dsig:KeyValue></dsig:KeyInfo></dsig:Signature><saml:Subject><saml:NameID NameQualifier="urn:picketlink:identity-federation">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z"/></saml:Assertion>
+02:12:20,691 TRACE [TransformerUtil] Set Attribute Namespace=http://www.w3.org/2000/xmlns/::Qual=:xmlns:dsig::Value=http://www.w3.org/2000/09/xmldsig#
+02:12:20,691 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,691 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,691 TRACE [TransformerUtil] Creating an Attribute Namespace=:URI
+02:12:20,691 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,691 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,692 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,693 TRACE [AssertionUtil] Now=2013-03-24T02:12:20.693-04:00 ::notBefore=2013-03-24T06:12:19.867Z::notOnOrAfter=2013-03-24T07:12:19.867Z
+02:12:20,697 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:20,697 TRACE [RunAsListener] PicketLinkSTS, runAs: null
+02:12:20,697 TRACE [SecurityAssociationValve] End invoke, caller=GenericPrincipal[JBoss(STSClient,)]
+02:12:20,697 TRACE [SecurityAssociation] clear, server=true
+02:12:20,697 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,697 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,706 TRACE [TransformerUtil] Set Attribute Namespace=http://www.w3.org/2000/xmlns/::Qual=:xmlns:dsig::Value=http://www.w3.org/2000/09/xmldsig#
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:URI
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,707 TRACE [TransformerUtil] Creating an Attribute Namespace=:Algorithm
+02:12:20,709 TRACE [UsersRolesLoginModule] initialize
+02:12:20,709 TRACE [UsersRolesLoginModule] Security domain: sts-wstest
+02:12:20,709 TRACE [UsersRolesLoginModule] Properties file=vfszip:/home/kpeeples/jboss/jboss-eap-5.2/jboss-as/server/default/deploy/jaxwstest/wstest.jar/sts-users.properties, defaults=null
+02:12:20,709 DEBUG [UsersRolesLoginModule] Loaded properties, users=[]
+02:12:20,709 TRACE [UsersRolesLoginModule] Properties file=vfszip:/home/kpeeples/jboss/jboss-eap-5.2/jboss-as/server/default/deploy/jaxwstest/wstest.jar/sts-roles.properties, defaults=null
+02:12:20,710 DEBUG [UsersRolesLoginModule] Loaded properties, users=[UserA]
+02:12:20,710 TRACE [UsersRolesLoginModule] login
+02:12:20,710 TRACE [SAML2STSLoginModule] commit, loginOk=true
+02:12:20,711 TRACE [SAML2STSLoginModule] Assertion from where roles will be sought=<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_6848f83c-2735-484a-90b3-6fb7cde8aa34" Version="2.0" IssueInstant="2013-03-24T06:12:19.867Z"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">PicketLinkSTS</saml:Issuer><dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><dsig:SignedInfo><dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments" /><dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><dsig:Reference URI="#ID_6848f83c-2735-484a-90b3-6fb7cde8aa34"><dsig:Transforms><dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><dsig:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></dsig:Transforms><dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><dsig:DigestValue>w6jr9EdT8Dgot8DTxiZQ0Y9DBm0=</dsig:DigestValue></dsig:Reference></dsig:SignedInfo><dsig:SignatureValue>I5R5XTTA7fyeWuDS64IUkKOLpL7U7FUARdOyKXaj2SaGU+UdKeImnfHeS1g1zztHvq7LjHrmaPBa
+mhq03pVcVrWFnAh8ZGmfMYF3djRkQam11l+JbNnwUuFbExGo+OCi/oe11xy6VbP21Oqtp7ilTBef
+EIS/VnKTRqFPN2JheE0=</dsig:SignatureValue><dsig:KeyInfo><dsig:KeyValue><dsig:RSAKeyValue><dsig:Modulus>suGIyhVTbFvDwZdx8Av62zmP+aGOlsBN8WUE3eEEcDtOIZgO78SImMQGwB2C0eIVMhiLRzVPqoW1
+dCPAveTm653zHOmubaps1fY0lLJDSZbTbhjeYhoQmmaBro/tDpVw5lKJns2qVnMuRK19ju2dxpKw
+lYGGtrP5VQv00dfNPbs=</dsig:Modulus><dsig:Exponent>AQAB</dsig:Exponent></dsig:RSAKeyValue></dsig:KeyValue></dsig:KeyInfo></dsig:Signature><saml:Subject><saml:NameID xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" NameQualifier="urn:picketlink:identity-federation">UserA</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" /></saml:Subject><saml:Conditions NotBefore="2013-03-24T06:12:19.867Z" NotOnOrAfter="2013-03-24T07:12:19.867Z" /></saml:Assertion>
+02:12:20,711 TRACE [UsersRolesLoginModule] commit, loginOk=true
+02:12:20,711 TRACE [UsersRolesLoginModule] Checking user: UserA, roles string: testRole
+02:12:20,711 TRACE [UsersRolesLoginModule] Adding to Roles: testRole
+02:12:20,711 TRACE [sts-wstest] defaultLogin, lc=javax.security.auth.login.LoginContext@5a9f30b4, subject=Subject(154576871).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole))
+02:12:20,711 TRACE [sts-wstest] updateCache, inputSubject=Subject(154576871).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)), cacheSubject=Subject(1665741674).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole))
+02:12:20,711 TRACE [JaasSecurityManagerBase$DomainInfo] destroy, subject=Subject:
+	Principal: UserA
+	Principal: Roles(members:testRole)
+, this=org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@486306fa[Subject(908473570).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107212276], activeUsers=0
+02:12:20,711 TRACE [JaasSecurityManagerBase$DomainInfo] logout, subject=Subject:
+	Principal: UserA
+	Principal: Roles(members:testRole)
+, this=org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@486306fa[Subject(908473570).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107212276]
+02:12:20,711 TRACE [SAML2STSLoginModule] logout
+02:12:20,712 TRACE [UsersRolesLoginModule] logout
+02:12:20,712 TRACE [sts-wstest] Inserted cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@23632c24[Subject(1665741674).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107332276]
+02:12:20,712 TRACE [sts-wstest] End isValid, true
+02:12:20,712 TRACE [LogAuditProvider] [Success]Source=org.jboss.security.javaee.EJBAuthenticationHelper;principal=UserA;method=echo;
+02:12:20,713 TRACE [SecurityRolesAssociation] Setting threadlocal:{}
+02:12:20,714 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.XACMLAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:20,719 TRACE [EJBXACMLUtil] <Request>
+<Subject SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
+<Attribute AttributeId="urn:oasis:names:tc:xacml:2.0:subject:role" DataType="http://www.w3.org/2001/XMLSchema#string" Issuer="jboss.org"><AttributeValue>testRole</AttributeValue></Attribute>
+<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" DataType="http://www.w3.org/2001/XMLSchema#string" Issuer="jboss.org"><AttributeValue>UserA</AttributeValue></Attribute>
+</Subject>
+<Resource>
+<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" DataType="http://www.w3.org/2001/XMLSchema#string"><AttributeValue>SecureEndpoint</AttributeValue></Attribute>
+</Resource>
+<Action>
+<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" DataType="http://www.w3.org/2001/XMLSchema#string" Issuer="jboss.org"><AttributeValue>echo</AttributeValue></Attribute>
+</Action>
+<Environment>
+<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time" DataType="http://www.w3.org/2001/XMLSchema#dateTime"><AttributeValue>2013-03-24T02:12:20.715000000-04:00</AttributeValue></Attribute>
+</Environment>
+</Request>
+
+02:12:20,719 FINE  [BasicEvaluationCtx] Attribute not in request: urn:oasis:names:tc:xacml:1.0:resource:resource-id ... querying AttributeFinder
+02:12:20,719 INFO  [AttributeFinder] Failed to resolve any values for urn:oasis:names:tc:xacml:1.0:resource:resource-id
+02:12:20,719 FINE  [CombiningAlgorithm] Rule id:urn:oasis:names:tc:xacml:2.0:jboss-test:XVI:rule:result=0
+02:12:20,719 TRACE [LogAuditProvider] [Success]Source=org.jboss.security.plugins.javaee.EJBAuthorizationHelper;Exception:=;Resource:=[org.jboss.security.authorization.resources.EJBResource:contextMap={policyRegistration=org.jboss.security.plugins.JBossPolicyRegistration@7a1d1456}:method=public void webservice.jaxws.server.WSTestBean.echo(java.lang.String):ejbMethodInterface=Local:ejbName=SecureEndpoint:ejbPrincipal=UserA:MethodRoles=Roles(<ANYBODY>,):securityRoleReferences=null:callerSubject=Subject:
+	Principal: UserA
+	Principal: Roles(members:testRole)
+:callerRunAs=null:callerRunAs=null:ejbRestrictionEnforcement=false:ejbVersion=null];policyRegistration=org.jboss.security.plugins.JBossPolicyRegistration@7a1d1456;
+02:12:20,720 INFO  [STDOUT] WSTest: Test
+02:12:20,720 TRACE [sts-wstest] getPrincipal, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@23632c24[Subject(1665741674).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107332276]
+02:12:20,720 INFO  [STDOUT] Principal: UserA
+02:12:20,720 TRACE [sts-wstest] getPrincipal, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@23632c24[Subject(1665741674).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107332276]
+02:12:20,720 INFO  [STDOUT] Principal.getName(): UserA
+02:12:20,721 TRACE [sts-wstest] getPrincipal, cache info: org.jboss.security.plugins.auth.JaasSecurityManagerBase$DomainInfo@23632c24[Subject(1665741674).principals=org.picketlink.identity.federation.bindings.jboss.subject.PicketLinkPrincipal@1422464360(UserA)org.jboss.security.SimpleGroup@526431881(Roles(members:testRole)),credential.class=org.picketlink.identity.federation.core.wstrust.SamlCredential@104693553,expirationTime=1364107332276]
+02:12:20,721 TRACE [JBossAuthorizationContext] Control flag for entry:org.jboss.security.authorization.config.AuthorizationModuleEntry{org.jboss.security.authorization.modules.XACMLAuthorizationModule:{}REQUIRED}is:[REQUIRED]
+02:12:20,721 TRACE [EJBXACMLPolicyModuleDelegate] no match found for security role testRole in the deployment descriptor for ejb SecureEndpoint
+02:12:20,721 INFO  [STDOUT] isUserInRole('testRole'): true
+02:12:20,722 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,722 TRACE [RunAsListener] SecureEndpoint, runAs: null
+02:12:20,722 TRACE [SecurityAssociationValve] End invoke, caller=null
+02:12:20,722 TRACE [SecurityAssociation] clear, server=true
+02:12:20,722 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+02:12:20,722 TRACE [SecurityRolesAssociation] Setting threadlocal:null
+
+
